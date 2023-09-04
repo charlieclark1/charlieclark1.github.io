@@ -1,0 +1,96 @@
+#motion-container{
+  display: flex;
+  flex-direction: column;
+}
+
+#transition-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.transitionExample{
+  padding: 1rem;
+  height: 4rem;
+  background-color: blue;
+  flex-grow: 1;
+  transition: 1000ms;
+  transition: background-color 1000ms;
+  cursor: pointer;
+}
+
+#transition-example-1:hover{
+  background-color: red;
+  color: aliceblue;
+  transition: 1000ms;
+  animation: cycleColour 1s infinite;
+}
+
+#transition-example-2:hover{
+  background-color: rgb(22, 224, 22);
+  color: aliceblue;
+  transition: 1000ms;
+
+}
+
+#animation-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.animationExample{
+  height: 8rem;
+  background-color: blue;
+  background: radial-gradient(red, blue);
+  background-size: 200%;
+  flex-grow: 1;
+  animation: cycleColour 10s infinite;
+}
+
+@keyframes cycleColour {
+  0% {
+    background-color: blue;
+    height: 15rem;
+  }
+  50% {
+    background-color: greenyellow;
+    transform: rotate(360deg);
+  }
+  100% {
+  background-color: crimson;
+  transform: scale3d(2);
+  }
+}
+
+
+
+
+
+#animation-example-1{
+  animation: cycleColour 5s infinite ease-in-out;
+}
+
+#animation-example-2{
+  animation: cycleColour 6s infinite ease-in-out;
+}
+
+#animation-example-3{
+  animation: cycleColour 7s infinite ease-in-out;
+}
+
+#animation-example-4{
+  animation: cycleColour 7s infinite ease-in-out;
+}
+
+#animation-example-5{
+  animation: cycleColour 6s infinite ease-in-out;
+}
+
+#animation-example-6{
+  animation: cycleColour 5s infinite ease-in-out;
+} 
+
+
