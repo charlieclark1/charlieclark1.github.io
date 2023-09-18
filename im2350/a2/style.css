@@ -1,200 +1,140 @@
-/*
-  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
-  works for both.
-*/
-
 *{
   box-sizing: border-box;
   background-origin: border-box;
   margin: 0;
+  /* i changed the background color to represent the sand and naturalness of the audio. The audio is traditional morrocan music,
+   so the natural tone represnts this */
+  background-color: blanchedalmond;
 }
 
+/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
+/* https://lospec.com/palette-list/1bit-monitor-glow */
+/* you're welcome to change the colours if you want or any of the other general page style */
 :root{
-  /* first two colours come from Kuroi's Manga Pallete Palette */
-  /* https://lospec.com/palette-list/manga-pallete */
-  --col-01:#171219;
-  --col-02:#f2fbeb;
+  --col-01:#222323;
+  --col-02:#f0f6f0;
   --col-03:#5252ff;
   --col-04:#b6e878;
-  font-size: 16px;
-  /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
-  scroll-behavior: smooth;
+  --col-05:#bcbdbc;
+  --col-06:#6f6f6f;
+  --border: 1px solid var(--col-02);
 }
 
-body{
-  padding: 1rem;
-  background-color: var(--col-02);
-  color: var(--col-01);
+.audio-player-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
 }
 
-nav {
-  margin-top: 1rem;
+/* becuase I want to overlay the play icon on the audio they need to be in their own wrapper */
+.audio-element-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
-nav li{
-  font-size: 1rem;
-}
-
-section{
-  margin-bottom: 2rem;
-}
-
-h1{
-  font-size: 3rem;
-}
-
-h2{
-  font-size: 2rem;
-}
-
-p{
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
-figcaption{
-  width: fit-content;
-}
-
-dl ul{
-  margin-bottom: 0;
-}
-
-li{
-  font-size: 1rem;
-}
-
-dd{
-  padding-left: 60px;
-}
-
-li ul{
-  padding-left: 40px;
-}
-
-.img-wrapper{
+#audioElement{
   width: 100%;
-  margin-bottom: 1.5rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
 
-.img-figure{
+#heroImage{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+#audioPlayOverlay{
+  width: 8rem;
+  height: 8rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  opacity: 0.3;
+  pointer-events: none;
+  
+}
+
+.audio-controls-wrapper{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.article-img{
-  width: 80%;
-}
-
-.res-columns{
-  column-width: 25rem;
-}
-
-#mode-button{
-  float: right;
-  /* note the use of position: sticky to keep the button on the page even with scrolling */
-  position: sticky;
-  top: 1rem;
-}
-
-/* code for loading page */
-
-#load-body{
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
-/* changing button to look like a link */
-#load-link{
-  line-height: 1rem;
-  background-color: transparent;
-  border: 1;
-}
-/* throbber while page is fake loading */
-#load-throbber{
-  /* the width, height and background-color give it a shape on the page without any content inside - 
-  these value are arbitrary, please change to create your own design  */
-  width: 100px;
-  height: 100px;
-  border-radius: 5%;
-  background: radial-gradient(black, white);
-  /* we also initially set display to none so it only shows once the link is clicked */
+/* this overwrites the above display:flex - something which is then undone when the JS loads */
+#controlsWrapper{
   display: none;
-  animation: throbAnimation  3s infinite;
 }
 
+.audio-control-button{
+  width: 2rem;
+  height: 2rem;
+  padding: .1rem;
+  border: none;
+  cursor: pointer;
+}
+.audio-control-button:hover{
+  background-color: var(--col-05);
+}
+.audio-control-button:active{
+  background-color: var(--col-06);
+}
+.button-icon{
+  pointer-events: none;
+}
 
+#playButton{
+  background-image: url('./icons/play.svg');
+}
 
-@keyframes throbAnimation {
-  0% {
-    
-    transform: scale(0) rotate(0deg);
-    
-  }
-  50% {
-    transform: scale(1) rotate(180deg);
-  }
- 
-  100% {
+#muteButton{
+  background-image: url(icons/mute.svg)
+}
+
+#loopButton{
+  background-image: url(icons/loop.svg);
   
-  transform: scale(0) rotate(360deg);
-  }
 }
 
-#load-link:hover{
-  background-color: rgb(152, 152, 141);
+#loopButton.clicked {
+  background-color: blue;
 }
 
-#mode-button:hover{
-  background-color: rgb(152, 152, 141);
+.audio-progress-bar{
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 2rem;
+  flex-grow: 1;
+  cursor: pointer;
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-02) inset;
 }
-#mode-button{
-  height: 1rem;
-  border: 0.1rem;
-  border-style: solid;
-  border-color: rgb(116, 116, 106);
-}
-
-#load-throbber:{
-  background-color: rgb(128, 121, 121);
-  transform: rotate(180deg)
-}
-
-/* Media Queries */
-
-/* medium devices 600 - 992 */
-@media only screen and (min-width: 600px) {
-  :root{
-    font-size: 20px;
-  }
-  
-  .img-wrapper{
-    width: 75%;
-    margin: 1.5rem auto;
-  }
-
+::-moz-progress-bar {
+  background-color: var(--col-03);
 }
 
-/* medium devices 992 + */
-@media only screen and (min-width: 992px) {
-  :root{
-    font-size: 24px;
-  }
-
-  .img-wrapper{
-    max-width: fit-content;
-    float: right;
-    margin: 1.5rem;
-  }
-
+::-webkit-progress-bar {
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-03) inset;
+}
+ /* i made the progress button dark blue to match with the image above the audio player */
+::-webkit-progress-value {
+  background-color: darkblue;
 }
 
-@media (prefers-reduced-motion) {
-  :root{
-    scroll-behavior: auto;
+.timeline-loading{
+  background-image: -moz-repeating-linear-gradient(45deg, var(--col-03) 0% 2%, transparent 2% 4%, red 4%);
+  background-size: 200% 100%;
+  animation: loadingAnimation 4s linear infinite;
+}
+
+@keyframes loadingAnimation {
+  100%{
+    background-position: 50% 0%;
   }
 }
 

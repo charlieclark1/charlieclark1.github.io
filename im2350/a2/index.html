@@ -1,49 +1,101 @@
 <!DOCTYPE html>
 
+<!-- YOU NEED TO INCLUDE THE FOLLOWING HTML SOMEWHERE IN YOUR DESIGN -->
+
 <!-- 
-
-  PROVIDE MEANINGFUL FEEDBACK TO THE FOLLOWING ELEMENTS:
-  1) <button> with the id of load-link on the loading page (index.html)
-  2) <div> with the id of load-throbber on the loading page (index.html)
-  3) <li>s inside of the <ol> inside of the <nav> on the information page (hosono.html)
-  4) <button> with the id of mode-button on the information page (hosono.html)
-
+<p class="attribution">
+  "<a target="_blank" rel="noopener noreferrer" href="https://www.jamendo.com/track/739121">CHAABI MAROC MIX</a>" by 
+  <a target="_blank" rel="noopener noreferrer" href="https://www.jamendo.com/artist/367146/CHAABI_MIX">CHAABI MIX</a> is licensed under 
+  <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/3.0/?ref=openverse">CC BY-NC-SA 3.0 
+    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+    <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+  </a>. 
+</p> 
 -->
 
 <html lang="en">
 
   <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morrocan DJ Mix</title>
+    <!-- please add a favicon -->
+    <link rel="stylesheet" href="style.css">
+    <script src="playerControls.js" defer></script>
 
-    <link rel="stylesheet" type="text/css" href="./style.css">
+     <!-- I have added the rights as a button, with links within, to fit with the page aethstetic, and also to look more appealing to the user, to look into the creator
+    The button also adds a shadow and border, allowing it to stand out more from the page. -->
 
-    <title>Loading Page</title>
+    <button><p class="attribution">
+      "<a target="_blank" rel="noopener noreferrer" href="https://www.jamendo.com/track/739121">CHAABI MAROC MIX</a>" by 
+      <a target="_blank" rel="noopener noreferrer" href="https://www.jamendo.com/artist/367146/CHAABI_MIX">CHAABI MIX</a> is licensed under 
+      <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/3.0/?ref=openverse">CC BY-NC-SA 3.0 
+        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+        <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+        <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+      </a>. 
+    </p> </button>
 
-    <script src="./fakeLoad.js" defer></script>
+    
+
+
+
+
 
   </head>
 
-  <body id="load-body">
+  <body>
 
-      <h1>Haruomi Hosono</h1>
-      <!--
-        Typically I'd use an <a> here but as we're faking a load time I'm using a <button> instead.  If it was an 
-        <a> I would leave off the target attribute so that it would redirect the current tab.
-      -->
-      <!--
-        The function loadPageAfterDelay() is declared in the file fakeLoad.js - it takes a number value that sets the 
-        amount of time it takes in ms and a url to redirect to.
-      -->
-      <button id="load-link" onclick="loadPageAfterDelay(10000, './hosono.html')">Click to Load Page</button>
-      <!--
-        This is a div we're using for the throbber - if we wanted to do a % based loading bar there is an element 
-        called <progress> but as this one is just indicating a wait rather than providing direct feedback on progress I've 
-        opted for using a <div>.
-      -->
-      <div id="load-throbber"></div>
+    <center><h1>Morrocan DJ Mix</h1></center>
+    
+   
+
+    <!-- this element holds all of the media player -->
+    <div class="audio-player-wrapper">
+      <!-- this element holds the audio element and the overlay -->
+      <div class="audio-element-wrapper">
+
+        <!-- This is just an image placeholder, feel free to replace or not -->
+        <img id="heroImage" src="./bg-band.png" alt="">
+
+        <audio id="audioElement" controls>
+          <source src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/CHAABI-MAROC-MIX_CHAABI-MIX.mp3" type="audio/mp3">
+        </audio>
+
+        <img id="audioPlayOverlay" src="./icons/play.svg">
+
+      </div>
+      <!-- this element holds all of the custom controls -->
+      <div class="audio-controls-wrapper" id="controlsWrapper">
+
+        <button class="audio-control-button" id="playButton"></button>
+
+        <button class="audio-control-button" id="muteButton"></button>
+        
+         <!-- This adds my loop button to the player. -->
+        <button class="audio-control-button" id="loopButton"></button>
+
+
+
+        <progress class="audio-progress-bar" id="progressBar" value="0"></progress>
+
+      </div>
+
+    </div>
+    
+
+
+    
+  
+  
+    
 
   </body>
 
+
+  
+  
 </html>
