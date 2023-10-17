@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/icon" href="/images/favicon.ico"> 
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fireworks</title>
+     <!--I have added this link as a favicon i created of a smiley face and added as an image file to my folder-->
+   <link rel="icon" href="image/favicon.ico">
+    
+    
+
+  </head>
+
+  <body>
+
+  
+     <!-- this turns my webpage into a canvas and access' the featires of a canvas-->
+    <canvas id="canvas1"></canvas>
+    <!--i created a slider in order for the user to be able to ajust the particle size from 1-100 giving them much more control, and allowing the user
+    to create more patterns, whilst making each creation more unique-->
+    <input type="range" id="particleSizeSlider" min="1" max="100" value="7.5">
+    <!-- this is my slider for the speedX, changing the speed in which users are able to generate the particles, giving more control to the user.-->
+    <!--<input type="range" id="speedXSlider" min="2" max="3" step="0.1" value="Math.random() * 3 - 1.5"-->
+    <!--<input type="range" id="speedYSlider" min="2" max="" step="0.1" value="Math.random() * 3 - 1.5">-->
+    <!--The buttons for my functions such as reset, colour changer, or background colour changer, i should have labelled these a bit better as it confused 
+    me at points-->
+    <button id="button1">Reset canvas</button>
+    <button id="button2"></button>
+    <button id="button3"></button>
+    <button id="button4"></button>
+    <button id="changeBackgroundButton">grey</button>
+    <button id="changeBackgroundButton2">black</button>
+    
+
+    
+  <!-- linking to my css page, creating the style aspects of the webpage-->
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    
+   
+
+   
+
+    
+   
+
+
+    
+
+  </body>
+
+</html>
+
+<!-- The basis of my idea came from watching Franks laboratory(youtube: https://www.youtube.com/watch?v=Yvz_axxWG4Y&t=2406s)html5 canvas crash course. in which i followed the tutorial into 
+making the particle system and the code to create said particle system. After i had created the main frame, i 
+wanted to perosonalise it by adding my own twists and functions such as reset, colour chooser, and light or dark mode
+My colour choices of the default page are inspired by the recent tiffany x nike collab. The context of my work is an experimental art piece
+in which the user is able to customize and create their own work using a canvas and a brush that gives a cyrstalize effect. another use for
+this code with an easy change could just be leaving a short bubble track behind the cursor for soemthing such as a portfolio, Although i
+was unable to figure out how to add functions to be able to change the ammount of particles are dispearsed by a mouse move.
+
+My chosen action was 'click' but within my project i also harnessed mouse move as it also creates something within the page.
+on each click there are 500 particles being dispersed onto the canvas and creating what looks similar to a firework-
+
+within my work i have included the slider based on size of the particles, this really changes alot, allowing the user to use the canvas more to draw and 
+make cool images, or as it gets bigger the uses change and it becomes more illusion like.
+the use of adding 500 particles to the click have allowed me to harness the 'click' as when clicked at a large scale it creates call
+patterns and illusions especially with mixing and matching colours.
+
+if i were to create this again i would attempt to add a slider that changed the rgba values allowing more colours and uses. i would 
+also like to add one button that would allow the user to choose any colour rather than just red, turquiose or pink.
+i would have also liked to look into making the particles stay 3d looking with some kind of colour transformation as the particles get smaller.
+
+the context of the click and the inspiration of webistes such as https://fractalfantasy.net/#liquidentropy have
+really inspired me to create this work 
+
+sources:
+particle tutorial: https://www.youtube.com/watch?v=Yvz_axxWG4Y&t=2406s
+liquid entropy for the slider idea: https://fractalfantasy.net/#liquidentropy 
+w3 schools for things such as sliders and functions : https://www.w3schools.com/js/js_random.asp
+stack overflow for reset troubleshooting : https://stackoverflow.com/questions/21043161/clear-canvas-button
+
+->
